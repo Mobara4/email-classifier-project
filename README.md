@@ -1,4 +1,4 @@
-# Chained Email Classifier – Multi-Label AI Architecture
+# Chained Email Classifier – Multi-Label Architecture
 
 This project implements a Chained Multi-Output Architecture to classify customer support emails into multiple label layers: Type 2, Type 3, and Type 4.
 
