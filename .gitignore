@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment folders
+env/
+venv/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDEs & editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Python virtual environment files
+*.env
+*.venv
+
+# Data files
+*.xlsx
+*.csv
+*.zip
+*.tar.gz
+
+# Misc
+*.bak
+*.swp
+*.tmp
+
+# Python package distribution
+build/
+dist/
+*.egg-info/
