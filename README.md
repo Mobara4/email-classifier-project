@@ -1,79 +1,68 @@
 # Chained Email Classifier – Multi-Label AI Architecture
 
-This project implements a Chained Multi-Output Architecture for classifying customer support emails into multiple labels such as Type 2, Type 3, and Type 4. 
+This project implements a Chained Multi-Output Architecture to classify customer support emails into multiple label layers: Type 2, Type 3, and Type 4.
 
-##  Project Structure
-Below is the structure of the folders and their brief description.
+## Project Structure
 
-chained_email_classifier/
-│
-├── main.py                        # Main controller script
-├── config.py                      # Global constants
-├── requirements.txt               # Python dependencies
-│
-├── preprocessing/                 # Data loading and transformation
-│   ├── data_loader.py
-│   ├── text_vectorizer.py
-│   └── label_filter.py
-│
-├── data_objects/                  # Encapsulation of training/test sets
-│   └── encapsulated_data.py
-│
-├── models/                        # Base model + RandomForest
-│   ├── base_model.py
-│   └── random_forest_model.py
-│
-├── evaluation/                    # Evaluation and metrics
-│   └── evaluator.py
-│
-└── chained_model_manager.py       # Manages chained model execution
+email_classifier/
+├── main.py                  - Main controller script  
+├── config.py                - Configuration settings  
+├── requirements.txt         - Project dependencies  
+│  
+├── preprocessing/  
+│   ├── data_loader.py       - Loads raw data  
+│   ├── text_vectorizer.py   - TF-IDF vectorizer  
+│   └── label_filter.py      - Filters out rare labels  
+│  
+├── models/  
+│   ├── base_model.py        - Base class for ML models  
+│   └── random_forest_model.py - Implements Random Forest  
+│  
+├── data_objects/  
+│   └── encapsulated_data.py - Bundles training/test sets  
+│  
+├── evaluation/  
+│   └── evaluator.py         - Metrics and reports  
+│  
+└── chained_model_manager.py - Core logic for chained predictions
 
+## Chained Multi-Output Approach
 
-##  Chained Multi-Output Approach
+This approach improves contextual classification by feeding one model’s output into the next.
 
-The architecture follows a chained logic:
 1. Model 1 (Type 2): Predicts the primary category.
-2. Model 2 (Type 3): Uses predictions from Type 2 as features.
-3. Model 3 (Type 4): Uses predictions from Type 2 and Type 3 for final classification.
+2. Model 2 (Type 3): Uses X + Type 2 predictions as input.
+3. Model 3 (Type 4): Uses X + Type 2 + Type 3 predictions as input.
 
-This chain ensures contextual accuracy across multiple levels.
+## Dataset Format
 
-##  Dataset Format
+Place your dataset file in the root directory with the name: AppGallery.csv
 
-Expected CSV columns:
-- `Interaction content`
-- `Ticket Summary`
-- `Type 2` *(label)*
-- `Type 3` *(label)*
-- `Type 4` *(label)*
+Expected Columns:
+- Interaction content
+- Ticket Summary
+- Type 2
+- Type 3
+- Type 4
 
- place the dataset file as `AppGallery.csv` in the project root.
+## How to Run the Project
 
+Step 1: Install Dependencies
 
-## How to Run
+    pip install -r requirements.txt
 
-### 1.  Install dependencies
-```bash
-pip install -r requirements.txt
-```
+Step 2: Run the Program
 
-### 2.  Run the project
-```bash
-python main.py
-```
+    python main.py
 
----
+## Output
 
-##  Output
+The script prints evaluation metrics for each prediction level:
+- Type 2 predictions
+- Type 3 predictions (chained)
+- Type 4 predictions (chained)
 
-The pipeline prints classification metrics at each stage:
+## Instructor Access
 
-- Accuracy for Type 2
-- Accuracy for Type 2 + 3
-- Accuracy for Type 2 + 3 + 4
-
----
-
-##  Instructor Access
-
-To access contribution metrics and commits, please check GitHub insights or contact the repository owner. Lecturer has been added as a collaborator.
+All contribution logs are available under GitHub Insights.
+Lecturer has been added as a collaborator for full access.
